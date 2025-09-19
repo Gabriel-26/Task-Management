@@ -1,0 +1,73 @@
+2025-09-18 15:35:20,253 INFO Set uid to user 0 succeeded
+2025-09-18 15:35:20,258 INFO supervisord started with pid 1
+2025-09-18 15:35:21,260 INFO spawned: 'php' with pid 16
+2025-09-18 15:35:22,263 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+  PHP Warning:  JIT is incompatible with third party extensions that override zend_execute_ex(). JIT disabled. in Unknown on line 0
+
+   INFO  Server running on [http://0.0.0.0:80].  
+
+  Press Ctrl+C to stop the server
+
+  2025-09-18 15:35:28 .............................................. ~ 0.17ms
+2025-09-18 15:35:31,905 INFO reaped unknown pid 21 (terminated by SIGTERM)
+2025-09-18 15:35:31,905 INFO reaped unknown pid 22 (terminated by SIGTERM)
+2025-09-18 15:35:31,905 INFO reaped unknown pid 23 (terminated by SIGTERM)
+2025-09-18 15:35:31,905 INFO reaped unknown pid 24 (terminated by SIGTERM)
+2025-09-18 15:35:31,990 WARN exited: php (exit status 139; not expected)
+2025-09-18 15:35:32,992 INFO spawned: 'php' with pid 26
+2025-09-18 15:35:33,993 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+  PHP Warning:  JIT is incompatible with third party extensions that override zend_execute_ex(). JIT disabled. in Unknown on line 0
+
+   INFO  Server running on [http://0.0.0.0:80].  
+
+  Press Ctrl+C to stop the server
+
+  2025-09-18 15:35:38 .............................................. ~ 0.15ms
+  2025-09-18 15:35:38 /api/login ....................................... ~ 3s
+  2025-09-18 15:35:56 .............................................. ~ 0.16ms
+  2025-09-18 15:37:02 .............................................. ~ 0.18ms
+  2025-09-18 15:37:06 .............................................. ~ 0.14ms
+  2025-09-18 15:38:28 /api/debug ....................................... ~ 2s
+  2025-09-18 15:40:44 / ................................................ ~ 3s
+  2025-09-18 15:40:47 /favicon.ico ................................. ~ 0.09ms
+  2025-09-18 15:45:04 .............................................. ~ 0.25ms
+2025-09-18 15:45:08,076 WARN exited: php (exit status 139; not expected)
+2025-09-18 15:45:08,076 INFO reaped unknown pid 31 (terminated by SIGSEGV (core dumped))
+2025-09-18 15:45:08,076 INFO reaped unknown pid 32 (terminated by SIGSEGV (core dumped))
+2025-09-18 15:45:08,076 INFO reaped unknown pid 33 (terminated by SIGTERM)
+2025-09-18 15:45:08,076 INFO reaped unknown pid 34 (terminated by SIGSEGV (core dumped))
+2025-09-18 15:45:09,079 INFO spawned: 'php' with pid 59
+2025-09-18 15:45:10,081 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+  PHP Warning:  JIT is incompatible with third party extensions that override zend_execute_ex(). JIT disabled. in Unknown on line 0
+
+   INFO  Server running on [http://0.0.0.0:80].  
+
+  Press Ctrl+C to stop the server
+
+
+   INFO  Environment modified. Restarting server...  
+
+  PHP Warning:  JIT is incompatible with third party extensions that override zend_execute_ex(). JIT disabled. in Unknown on line 0
+2025-09-18 15:45:43,111 INFO reaped unknown pid 64 (terminated by SIGTERM)
+2025-09-18 15:45:43,111 INFO reaped unknown pid 65 (terminated by SIGTERM)
+2025-09-18 15:45:43,111 INFO reaped unknown pid 66 (terminated by SIGTERM)
+2025-09-18 15:45:43,111 INFO reaped unknown pid 67 (terminated by SIGTERM)
+
+   INFO  Server running on [http://0.0.0.0:80].  
+
+  Press Ctrl+C to stop the server
+
+  2025-09-18 15:47:31 .............................................. ~ 0.15ms
+2025-09-18 15:47:50,858 WARN exited: php (exit status 139; not expected)
+2025-09-18 15:47:50,858 INFO reaped unknown pid 77 (terminated by SIGTERM)
+2025-09-18 15:47:50,858 INFO reaped unknown pid 78 (terminated by SIGSEGV (core dumped))
+2025-09-18 15:47:50,858 INFO reaped unknown pid 79 (terminated by SIGTERM)
+2025-09-18 15:47:50,858 INFO reaped unknown pid 80 (terminated by SIGTERM)
+2025-09-18 15:47:51,862 INFO spawned: 'php' with pid 91
+2025-09-18 15:47:52,865 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+  PHP Warning:  JIT is incompatible with third party extensions that override zend_execute_ex(). JIT disabled. in Unknown on line 0
+
+   INFO  Server running on [http://0.0.0.0:80].  
+
+  Press Ctrl+C to stop the server
+
