@@ -20,16 +20,23 @@ class ResourceController extends Controller
         
     }
 
-    public function index(Request $request)
-    {
-        try {
-            $tasks = $this->tasks->allByUser($request->user()->id, $request->date);
-            return TaskResource::collection($tasks);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()]);
-        }
+
+public function index(Request $request)
+{
+    try {
+        $userId = $request->user()->id;
+
+        $from = $request->query('from');     // e.g. 2025-09-01
+        $to = $request->query('to');         // e.g. 2025-09-30
+        $perPage = (int) $request->query('per_page', 0);
+
+        $tasks = $this->tasks->allByUser($userId, $from, $to, $perPage);
+
+        return TaskResource::collection($tasks);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
     }
-    
+}
 
     public function search(Request $request)
     {
