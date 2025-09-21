@@ -142,7 +142,7 @@ const filteredTasks = computed(() => {
         </div>
 
         <!-- Task list and bottom input only show if there are tasks -->
-        <div class="flex-1 flex flex-col overflow-y-auto">
+        <div v-else class="flex-1 flex flex-col overflow-y-auto">
           <!-- Scrollable task list -->
           <div class="w-full max-w-3xl mx-auto flex-1 overflow-y-auto">
             <TaskList

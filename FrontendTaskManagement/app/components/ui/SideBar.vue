@@ -14,7 +14,7 @@ const formatDate = (date: Date) =>
     weekday: "short",
     month: "short",
     day: "numeric",
-    year: "numeric", // ✅ include the year
+    year: "numeric",
   });
 
 // Current month info
@@ -88,15 +88,17 @@ const sections = ref(sectionsArr);
 <template>
   <aside class="w-64 bg-white p-6 overflow-y-auto rounded-l-xl">
     <template v-for="(section, sIndex) in sections" :key="sIndex">
-      <span v-if="section.title" class="text-gray-400 text-xs mb-2 block">{{
-        section.title
-      }}</span>
+      <span
+        v-if="section.title"
+        class="text-gray-400 text-xs mb-2 px-4 block"
+        >{{ section.title }}</span
+      >
       <p
         v-for="(item, index) in section.items"
         :key="index"
         @click="selectItem(item)"
         :class="[
-          'mb-1 cursor-pointer px-2 py-1 rounded-2xl transition-colors',
+          'mb-1 cursor-pointer px-4 py-1 rounded-lg transition-colors text-sm',
           taskStore.activeItem === item
             ? 'bg-black text-white'
             : 'hover:bg-gray-200',
