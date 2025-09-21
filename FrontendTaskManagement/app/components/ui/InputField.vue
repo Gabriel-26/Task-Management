@@ -1,33 +1,37 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits } from "vue";
 
 interface Props {
-  id?: string
-  label?: string
-  type?: string
-  placeholder?: string
-  modelValue: string
+  id?: string;
+  label?: string;
+  type?: string;
+  placeholder?: string;
+  modelValue: string;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
 // Typed emit for v-model support
-const emit = defineEmits<(e: 'update:modelValue', value: string) => void>()
+const emit = defineEmits<(e: "update:modelValue", value: string) => void>();
 
 // Generate a unique id if none is passed
-const inputId = props.id || `input-${Math.random().toString(36).substr(2, 9)}`
+const inputId = props.id || `input-${Math.random().toString(36).substr(2, 9)}`;
 
 // Handle input events
 const onInput = (e: Event) => {
-  const target = e.target as HTMLInputElement
-  emit('update:modelValue', target.value)
-}
+  const target = e.target as HTMLInputElement;
+  emit("update:modelValue", target.value);
+};
 </script>
 
 <template>
   <div class="mb-4">
     <!-- Render label only if provided -->
-    <label v-if="props.label" :for="inputId" class="block text-sm font-medium text-gray-700 mb-1">
+    <label
+      v-if="props.label"
+      :for="inputId"
+      class="block text-sm font-medium text-gray-700 mb-1"
+    >
       {{ props.label }}
     </label>
 

@@ -1,11 +1,11 @@
-export { default as InputField } from './InputField.vue'
-export { default as Button } from './Button.vue'
-export { default as Card } from './Card.vue'
-export {default as HeaderBar} from './HeaderBar.vue'
-export {default as SideBar} from './SideBar.vue'
-export {default as TaskCard} from './TaskCard.vue'
-export {default as TaskList} from './TaskList.vue'
-export {default as TaskItem} from './TaskItem.vue'
-export {default as TaskInput} from './TaskInput.vue'
-export {default as LoadingOverlay} from './LoadingOverlay.vue'
-export {default as SearchResults} from './SearchResults.vue'
+export { default as InputField } from "./InputField.vue";
+export { default as Button } from "./Button.vue";
+export { default as Card } from "./Card.vue";
+export { default as HeaderBar } from "./HeaderBar.vue";
+export { default as SideBar } from "./SideBar.vue";
+export { default as TaskCard } from "./TaskCard.vue";
+export { default as TaskList } from "./TaskList.vue";
+export { default as TaskItem } from "./TaskItem.vue";
+export { default as TaskInput } from "./TaskInput.vue";
+export { default as LoadingOverlay } from "./LoadingOverlay.vue";
+export { default as SearchResults } from "./SearchResults.vue";

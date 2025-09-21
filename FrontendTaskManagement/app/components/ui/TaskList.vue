@@ -1,52 +1,60 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import TaskItem from './TaskItem.vue'
-import { useTaskStore } from '../store/tasks'
-import { default as Draggable } from 'vuedraggable'
+import { defineProps } from "vue";
+import TaskItem from "./TaskItem.vue";
+import { useTaskStore } from "../store/tasks";
+import { default as Draggable } from "vuedraggable";
 
 interface Props {
-  tasks: { text: string; done: boolean; id: number; priority?: number }[]
+  tasks: { text: string; done: boolean; id: number; priority?: number }[];
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 const emit = defineEmits<{
-  (e: 'delete', taskId: number): void
-  (e: 'toggleDone', taskId: number): void
-}>()
+  (e: "delete", taskId: number): void;
+  (e: "toggleDone", taskId: number): void;
+}>();
 
-const taskStore = useTaskStore()
+const taskStore = useTaskStore();
 
 const toggleDone = (taskId: number) => {
-  console.log('[toggleDone] clicked for taskId:', taskId)
-  taskStore.toggleComplete(taskId)
-  emit('toggleDone', taskId)
-}
-
+  console.log("[toggleDone] clicked for taskId:", taskId);
+  taskStore.toggleComplete(taskId);
+  emit("toggleDone", taskId);
+};
 
 const removeTask = async (taskId: number) => {
-  await taskStore.deleteTaskAPI(taskId)
-  emit('delete', taskId)
-}
+  await taskStore.deleteTaskAPI(taskId);
+  emit("delete", taskId);
+};
 
-const handleEdit = (payload: { id: number; text: string }) => {
-  // Return the promise so TaskItem can await it
-  return taskStore.editTaskAPI(payload.id, payload.text)
-}
+// const handleEdit = (payload: { id: number; text: string }) => {
+//   // Return the promise so TaskItem can await it
+//   return taskStore.editTaskAPI(payload.id, payload.text)
+// }
 
-const editTask = (id: number, text: string) => {
-  return taskStore.editTaskAPI(id, text)
-}
+// const editTask = (id: number, text: string, priority?: number) => {
+//   return taskStore.editTaskAPI(id, text, priority)
+// }
+
+const editTask = async (id: number, text: string, priority?: number) => {
+  await taskStore.editTaskAPI(id, text, priority);
+
+  // Update the props.tasks array immediately to reflect the new priority
+  const task = props.tasks.find((t) => t.id === id);
+  if (task && priority !== undefined) task.priority = priority;
+};
+
 // Called after drag ends
 const onDragEnd = async (evt: any) => {
-  const { oldIndex, newIndex } = evt
-  if (oldIndex === undefined || newIndex === undefined) return
+  const { oldIndex, newIndex } = evt;
+  if (oldIndex === undefined || newIndex === undefined) return;
 
-  const task = props.tasks[oldIndex]
-  if (!task) return
+  const task = props.tasks[oldIndex];
+  if (!task) return;
 
   // Update task order in store & API
-  await taskStore.updateTaskOrder(task.id, newIndex)
-}
+  await taskStore.updateTaskOrder(task.id, newIndex);
+};
 </script>
 
 <template>
@@ -59,16 +67,15 @@ const onDragEnd = async (evt: any) => {
       class="space-y-4"
     >
       <template #item="{ element }">
-       <TaskItem
-  :id="element.id"
-  :task="element.text"
-  :done="element.done"
-  :priority="element.priority"
-  @toggleDone="toggleDone"
-  @delete="removeTask"
-  :edit-task="editTask"
-/>
-
+        <TaskItem
+          :id="element.id"
+          :task="element.text"
+          :done="element.done"
+          :priority="element.priority"
+          @toggleDone="toggleDone"
+          @delete="removeTask"
+          :edit-task="editTask"
+        />
       </template>
     </Draggable>
   </div>

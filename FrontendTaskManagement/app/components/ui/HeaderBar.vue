@@ -1,43 +1,48 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, ref, watch, onBeforeUnmount } from 'vue'
+import { defineProps, defineEmits, ref, watch, onBeforeUnmount } from "vue";
 
 interface Props {
-  searchQuery: string
+  searchQuery: string;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 const emit = defineEmits<{
-  (e: 'update:searchQuery', value: string): void
-}>()
+  (e: "update:searchQuery", value: string): void;
+}>();
 
-const inputValue = ref(props.searchQuery)
-let timer: ReturnType<typeof setTimeout> | null = null
+const inputValue = ref(props.searchQuery);
+let timer: ReturnType<typeof setTimeout> | null = null;
 
 const onInput = (e: Event) => {
-  inputValue.value = (e.target as HTMLInputElement).value
+  inputValue.value = (e.target as HTMLInputElement).value;
 
   // Clear previous timer
-  if (timer) clearTimeout(timer)
+  if (timer) clearTimeout(timer);
 
   // Set new timer
   timer = setTimeout(() => {
-    emit('update:searchQuery', inputValue.value)
-  }, 300)
-}
+    emit("update:searchQuery", inputValue.value);
+  }, 300);
+};
 
 // Clean up timer on unmount
 onBeforeUnmount(() => {
-  if (timer) clearTimeout(timer)
-})
+  if (timer) clearTimeout(timer);
+});
 
 // Sync props.searchQuery if parent changes it externally
-watch(() => props.searchQuery, (newVal) => {
-  inputValue.value = newVal
-})
+watch(
+  () => props.searchQuery,
+  (newVal) => {
+    inputValue.value = newVal;
+  }
+);
 </script>
 
 <template>
-  <header class="flex items-center justify-between bg-white p-4 rounded-t-xl shadow-sm">
+  <header
+    class="flex items-center justify-between bg-white p-4 rounded-t-xl shadow-sm"
+  >
     <div class="text-2xl font-bold">🌀</div>
 
     <input

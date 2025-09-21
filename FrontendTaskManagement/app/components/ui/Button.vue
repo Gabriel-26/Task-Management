@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps } from "vue";
 
 interface Props {
-  type?: 'button' | 'submit'
+  type?: "button" | "submit";
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 </script>
 
 <template>

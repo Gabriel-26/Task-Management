@@ -1,25 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { InputField, Button, Card } from '~/components/ui'
-import { NotepadText } from 'lucide-vue-next'
+import { ref } from "vue";
+import { InputField, Button, Card } from "~/components/ui";
+import { NotepadText } from "lucide-vue-next";
 
 interface LoginForm {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 const form = ref<LoginForm>({
-  email: '',
-  password: ''
-})
+  email: "",
+  password: "",
+});
 
 const handleLogin = async (): Promise<void> => {
-  console.log(form.value.email, form.value.password)
-}
+  console.log(form.value.email, form.value.password);
+};
 </script>
 
 <template>
-  <div class="flex h-screen flex-col items-center justify-center bg-white space-y-6">
+  <div
+    class="flex h-screen flex-col items-center justify-center bg-white space-y-6"
+  >
     <!-- Icon outside the card -->
     <NotepadText class="w-12 h-12 text-black" />
 
@@ -48,7 +50,9 @@ const handleLogin = async (): Promise<void> => {
         >
           <template #extra>
             <div class="text-xs text-right mt-1">
-              <a href="#" class="text-black hover:underline">Forgot your password?</a>
+              <a href="#" class="text-black hover:underline"
+                >Forgot your password?</a
+              >
             </div>
           </template>
         </InputField>
