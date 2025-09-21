@@ -18,6 +18,8 @@ class TaskUpdateRequest extends FormRequest
             'due_date' => 'sometimes|required|date',
             'order' => 'nullable|integer',
             'completed' => 'sometimes|boolean',
+            'priority' => 'sometimes|integer|min:1|max:3',
+
         ];
     }
 }

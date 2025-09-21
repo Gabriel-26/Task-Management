@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('order')->default(0);
             $table->timestamps();
         });
-        
     }
 
     /**

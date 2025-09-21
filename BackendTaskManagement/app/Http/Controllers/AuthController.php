@@ -8,7 +8,7 @@ use App\Http\Requests\LoginRequest;
 
 class AuthController extends Controller
 {
-public function login(LoginRequest $request)
+    public function login(LoginRequest $request)
     {
         $request->validate([
             'email' => 'required|email',

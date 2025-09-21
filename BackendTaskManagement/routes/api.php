@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::post('login', [AuthController::class, 'login']);
@@ -17,6 +18,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('tasks/{task}', [ResourceController::class, 'destroy']);
     Route::patch('tasks/{task}/toggle', [ResourceController::class, 'toggleCompleted']);
     Route::patch('tasks/{task}/order', [ResourceController::class, 'updateOrder']);
-
 });
-

@@ -8,27 +8,27 @@ class TaskRepository
 {
 
 
-public function allByUser(int $userId, ?string $from = null, ?string $to = null, int $perPage = 0)
-{
-    $query = Task::where('user_id', $userId)
-        ->orderBy('due_date', 'desc')
-        ->orderBy('order');
+    public function allByUser(int $userId, ?string $from = null, ?string $to = null, int $perPage = 0)
+    {
+        $query = Task::where('user_id', $userId)
+            ->orderBy('due_date', 'desc')
+            ->orderBy('order');
 
-    // optional date range
-    if ($from) {
-        $query->whereDate('due_date', '>=', $from);
-    }
-    if ($to) {
-        $query->whereDate('due_date', '<=', $to);
-    }
+        // optional date range
+        if ($from) {
+            $query->whereDate('due_date', '>=', $from);
+        }
+        if ($to) {
+            $query->whereDate('due_date', '<=', $to);
+        }
 
-    // optional pagination
-    if ($perPage > 0) {
-        return $query->paginate($perPage);
-    }
+        // optional pagination
+        if ($perPage > 0) {
+            return $query->paginate($perPage);
+        }
 
-    return $query->get();
-}
+        return $query->get();
+    }
 
 
     public function search(int $userId, string $keyword)

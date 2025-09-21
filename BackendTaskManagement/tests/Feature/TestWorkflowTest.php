@@ -25,10 +25,10 @@ it('can fetch a single task by ID', function () {
     $response = $this->getJson("/api/tasks/{$task->id}");
 
     $response->assertStatus(200)
-             ->assertJsonFragment([
-                 'id' => $task->id,
-                 'statement' => 'Test fetching single task',
-             ]);
+        ->assertJsonFragment([
+            'id' => $task->id,
+            'statement' => 'Test fetching single task',
+        ]);
 });
 
 it('can create a task', function () {
@@ -41,7 +41,7 @@ it('can create a task', function () {
     $response = $this->postJson('/api/tasks', $payload);
 
     $response->assertStatus(201)
-             ->assertJsonFragment(['statement' => 'Finish Laravel exam']);
+        ->assertJsonFragment(['statement' => 'Finish Laravel exam']);
 
     $this->assertDatabaseHas('tasks', [
         'statement' => 'Finish Laravel exam',
@@ -58,7 +58,7 @@ it('can fetch all tasks for a specific date', function () {
     $response = $this->getJson('/api/tasks?date=' . now()->toDateString());
 
     $response->assertStatus(200)
-             ->assertJsonCount(3, 'data');
+        ->assertJsonCount(3, 'data');
 });
 
 it('can update a task', function () {
@@ -69,7 +69,7 @@ it('can update a task', function () {
     ]);
 
     $response->assertStatus(200)
-             ->assertJsonFragment(['statement' => 'Updated task statement']);
+        ->assertJsonFragment(['statement' => 'Updated task statement']);
 
     $this->assertDatabaseHas('tasks', [
         'id' => $task->id,
@@ -86,7 +86,7 @@ it('can toggle a task as completed', function () {
     $response = $this->patchJson("/api/tasks/{$task->id}/toggle");
 
     $response->assertStatus(200)
-             ->assertJsonFragment(['completed' => true]);
+        ->assertJsonFragment(['completed' => true]);
 
     $this->assertDatabaseHas('tasks', [
         'id' => $task->id,
@@ -118,8 +118,8 @@ it('can search tasks by keyword', function () {
     $response = $this->getJson('/api/tasks/search?search=groceries');
 
     $response->assertStatus(200)
-             ->assertJsonCount(1, 'data')
-             ->assertJsonFragment(['statement' => 'Buy groceries']);
+        ->assertJsonCount(1, 'data')
+        ->assertJsonFragment(['statement' => 'Buy groceries']);
 });
 
 it('can update the order of a task', function () {
@@ -133,7 +133,7 @@ it('can update the order of a task', function () {
     ]);
 
     $response->assertStatus(200)
-             ->assertJsonFragment(['order' => 5]);
+        ->assertJsonFragment(['order' => 5]);
 
     $this->assertDatabaseHas('tasks', [
         'id' => $task->id,
